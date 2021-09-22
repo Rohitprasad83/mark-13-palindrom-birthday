@@ -1,3 +1,10 @@
+var inputDate = document.querySelector("#input-date");
+var showBtn = document.querySelector("#show");
+var output = document.querySelector("#output");
+var gif = document.querySelector("#gif");
+
+
+
 function stringReverse(str) {
     var charList = str.split('');
     var reversedListChars = charList.reverse();
@@ -191,43 +198,38 @@ function stringReverse(str) {
   function nearestPalindrome(date) {
     var [countPrev, prevPal] = getPreviousPalindromeDate(date);
     var [countNext, nextPal] = getNextPalindromeDate(date);
-  
+    console.log(nextPal);
+    console.log(prevPal);
     if (countPrev < countNext) {
-      output.innerText = `The nearest palindrome date is ${prevPal.day}"-"${prevPal.month}"-"${prevPal.year}, you missed by ${countPrev}.`;
+      output.innerText = `The nearest palindrome date is ${prevPal.day}-${prevPal.month}-${prevPal.year}, you missed by ${countPrev}.`;
     }
     else {
-      console.log(nextPal.day + "-" + nextPal.month + "-" + nextPal.year, countNext);
+      output.innerText = `The nearest palindrome date is ${nextPal.day}-${nextPal.month}-${nextPal.year}, you missed by ${countNext}.`;
     }
   }
   
   
-  var inputDate = document.querySelector("#input-date");
-  var showBtn = document.querySelector("#show");
-  var output = document.querySelector("#output");
-  var gif = document.querySelector("#gif");
-  
-  
-  
-  function showPalindrome(){
 
-    if(inputDate.value !== ''){
-        var date = inputDate.value;
-        var dateSplit = date.split('-');
-        var requiredDate = {
-            day: Number(dateSplit[2]),
-            month: Number(dateSplit[1]),
-            year: Number(dateSplit[0]),
-        }
-        nearestPalindrome(requiredDate);
-    }
-    else{
-        output.innerText = "Please select a date!"
-    }
-    
   
-    
-  }
+  
+    function showPalindrome(){
+  
+      if(inputDate.value !== ''){
+          var date = inputDate.value;
+          var dateSplit = date.split('-');
+          var requiredDate = {
+              day: Number(dateSplit[2]),
+              month: Number(dateSplit[1]),
+              year: Number(dateSplit[0]),
+          }
+          nearestPalindrome(requiredDate);
+      }
+      else{
+          output.innerText = "Please select a date!"
+      }
+    }
     showBtn.addEventListener('click', showPalindrome)
   
+
   
-  
+  //setTimeout for gif
