@@ -2,8 +2,10 @@ var inputDate = document.querySelector("#input-date");
 var showBtn = document.querySelector("#show");
 var output = document.querySelector("#output");
 var gif = document.querySelector("#gif");
+var birthdayCake = document.querySelector("#birthday-cake");
 
 gif.style.display ='none';
+birthdayCake.style.display ='none';
 
 function stringReverse(str) {
     var charList = str.split('');
@@ -196,10 +198,14 @@ function stringReverse(str) {
   
   
   function nearestPalindrome(date) {
+    birthdayCake.style.display = 'none';
+
     if(checkDatePalindrome(date)){
-      showMessage("YAY!, Your birthday is a Palindrome!")
+      showMessage("YAY!, Your birthday is a Palindrome!");
+      birthdayCake.style.display = 'block';
     }
     else{
+
     var [countPrev, prevPal] = getPreviousPalindromeDate(date);
     var [countNext, nextPal] = getNextPalindromeDate(date);
     if (countPrev < countNext) {
