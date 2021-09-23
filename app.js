@@ -209,9 +209,21 @@ function stringReverse(str) {
     var [countPrev, prevPal] = getPreviousPalindromeDate(date);
     var [countNext, nextPal] = getNextPalindromeDate(date);
     if (countPrev < countNext) {
+      if(prevPal.day < 10) {
+        prevPal.day = '0' + (prevPal.day);
+      }
+      if(prevPal.month < 10) {
+        prevPal.month = '0' + (prevPal.month);
+      }
       showMessage(`The nearest palindrome date is ${prevPal.day}-${prevPal.month}-${prevPal.year}, you missed by ${countPrev} ${countPrev > 1 ? 'days' : 'day'}.`);
     }
     else {
+      if(nextPal.day < 10) {
+        nextPal.day = '0' + (nextPal.day);
+      }
+      if(nextPal.month < 10) {
+        nextPal.month = '0' + (nextPal.month);
+      }
       showMessage(`The nearest palindrome date is ${nextPal.day}-${nextPal.month}-${nextPal.year}, you missed by ${countNext} ${countNext > 1 ? 'days' : 'day'}.`);
     }
     }
