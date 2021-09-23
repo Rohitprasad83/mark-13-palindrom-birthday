@@ -3,7 +3,7 @@ var showBtn = document.querySelector("#show");
 var output = document.querySelector("#output");
 var gif = document.querySelector("#gif");
 
-
+gif.style.display ='none';
 
 function stringReverse(str) {
     var charList = str.split('');
@@ -196,15 +196,18 @@ function stringReverse(str) {
   
   
   function nearestPalindrome(date) {
+    if(checkDatePalindrome(date)){
+      showMessage("YAY!, Your birthday is a Palindrome!")
+    }
+    else{
     var [countPrev, prevPal] = getPreviousPalindromeDate(date);
     var [countNext, nextPal] = getNextPalindromeDate(date);
-    console.log(nextPal);
-    console.log(prevPal);
     if (countPrev < countNext) {
-      output.innerText = `The nearest palindrome date is ${prevPal.day}-${prevPal.month}-${prevPal.year}, you missed by ${countPrev}.`;
+      showMessage(`The nearest palindrome date is ${prevPal.day}-${prevPal.month}-${prevPal.year}, you missed by ${countPrev} ${countPrev > 1 ? 'days' : 'day'}.`);
     }
     else {
-      output.innerText = `The nearest palindrome date is ${nextPal.day}-${nextPal.month}-${nextPal.year}, you missed by ${countNext}.`;
+      showMessage(`The nearest palindrome date is ${nextPal.day}-${nextPal.month}-${nextPal.year}, you missed by ${countNext} ${countNext > 1 ? 'days' : 'day'}.`);
+    }
     }
   }
   
@@ -225,11 +228,30 @@ function stringReverse(str) {
           nearestPalindrome(requiredDate);
       }
       else{
-          output.innerText = "Please select a date!"
+          showMessage("Please select a date!");
       }
     }
-    showBtn.addEventListener('click', showPalindrome)
-  
+    
+  function showOutputMessage(msg){
+    hideMessage();
+    gif.style.display ='block';
+    setTimeout(() => {
+      gif.style.display ='none';
+      showPalindrome();
 
+    }, 1500);
+  }
+
+  function hideMessage(){
+    output.style.display ="none";
+
+  }
+
+  function showMessage(msg){
+    output.style.display = "block";
+    output.innerText = msg;
+  }
+
+  showBtn.addEventListener('click', showOutputMessage)
   
-  //setTimeout for gif
+  
