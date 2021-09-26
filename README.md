@@ -8,3 +8,10 @@ nearest palindrome date and how many days missed.
 3. If the entered birthdate is not a palindrome:
    a)Find the nearest palindrome date
    b)Find how many days they missed
+
+
+
+Tech Stack Used:
+1. HTML5
+2. CSS3
+3. Javascript
