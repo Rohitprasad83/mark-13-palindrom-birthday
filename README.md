@@ -1,17 +1,29 @@
-This is a palindrome birthday checker that will also show the
-nearest palindrome date and how many days missed.
+## **Palindrome Birthday App**
 
-1. Ask the user to input his/her birth date
+This is a palindrome birthday checker app that will check whether your birthday is a palindrome or not for a given variations of date formats and will tell the nearest palindrome date and also how many days your birthday missed the nearest palindrome date.
 
-2. Check if the entered birthdate is a palindrome, if yes, show a message
-
-3. If the entered birthdate is not a palindrome:
-   a)Find the nearest palindrome date
-   b)Find how many days they missed
+## Interface of the app
+<img src="./images/interface.png" alt="drawing" width="250"/>
 
 
 
-Tech Stack Used:
+## How to use the app:
+
+1. Enter the birth date.
+
+2. Click on show to check whether your birthday is palindrome or not.
+
+3. Output: 
+    - Shows the birthday is palindrome or not with a cake. 
+    - Shows the nearest Palindrome Birthday.
+
+
+## Tech Stack Used:
 1. HTML5
 2. CSS3
 3. Javascript
+
+
+## Link of the app.
+
+[Palindrome Birthday](https://rohit-mark-13-palindrome-birthday.netlify.app/)
